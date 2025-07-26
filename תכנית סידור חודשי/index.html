@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>לוח תורנויות חודשי</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>לוח תורנויות חודשי</h1>
+
+  <div id="setup">
+    <label for="projectName">שם פרויקט / מחלקה:</label>
+    <input type="text" id="projectName" placeholder="לדוגמה: צוות לילה">
+
+    <label for="workers">שמות העובדים (מופרדים בפסיק):</label>
+    <input type="text" id="workers" placeholder="יעקב, נועה, רן...">
+
+    <label for="shiftCount">מספר משמרות ביום:</label>
+    <input type="number" id="shiftCount" min="1" value="1">
+
+    <label for="monthPicker">בחר חודש:</label>
+    <input type="month" id="monthPicker">
+
+    <button onclick="generateDutyTable()">צור טופס זמינות</button>
+  </div>
+
+  <div id="availability-section" style="display: none">
+    <h2>הגדר זמינות עובדים</h2>
+    <form id="availability-form"></form>
+    <button onclick="buildCalendarWithAvailability()">צור לוח תורנויות</button>
+  </div>
+
+  <div id="calendar-section" style="display: none">
+    <h2 id="month-title"></h2>
+    <div id="calendar"></div>
+    <div class="buttons">
+      <button onclick="saveToLocal()">💾 שמור בדפדפן</button>
+      <button onclick="loadFromLocal()">📤 טען מהדפדפן</button>
+      <button onclick="exportToExcel()">⬇️ ייצא ל־Excel</button>
+      <button onclick="exportAsJSON()">📥 שמור קובץ JSON</button>
+      <input type="file" id="jsonFileInput" onchange="importFromJSON()" accept="application/json">
+    </div>
+  </div>
+
+  <template id="day-template">
+    <div class="day">
+      <div class="date"></div>
+      <div class="worker"></div>
+      <textarea class="note" placeholder="הערות למשימה..." rows="2"></textarea>
+    </div>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,227 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f9fafb;
+  color: #333;
+  margin: 0;
+  padding: 1rem;
+  direction: rtl;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+main {
+  max-width: 900px;
+  width: 100%;
+}
+
+h1, h2 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.card {
+  background: #fff;
+  box-shadow: 0 0 12px rgb(0 0 0 / 0.07);
+  border-radius: 10px;
+  padding: 1.5rem 2rem;
+  margin: 1rem 0;
+}
+
+label {
+  display: block;
+  margin: 1rem 0 0.3rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+input[type='text'],
+input[type='number'],
+input[type='month'] {
+  width: 100%;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1.5px solid #bbb;
+  transition: border-color 0.25s ease;
+  box-sizing: border-box;
+}
+
+input[type='text']:focus,
+input[type='number']:focus,
+input[type='month']:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 5px #3498dbaa;
+}
+
+button {
+  margin-top: 1.2rem;
+  padding: 0.7rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  background-color: #3498db;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover,
+button:focus {
+  background-color: #2c80c9;
+  outline: none;
+}
+
+.hidden {
+  display: none;
+}
+
+/* זמינות עובדים - שורות עם תיבות סימון */
+.availability-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  justify-content: flex-start;
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.availability-form fieldset {
+  border: 1.2px solid #ddd;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  flex: 1 1 140px;
+  min-width: 140px;
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.availability-form legend {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 0.6rem;
+  text-align: center;
+}
+
+.availability-form label {
+  display: inline-block;
+  margin: 0 6px 8px 0;
+  font-weight: normal;
+  font-size: 0.9rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.availability-form input[type='checkbox'] {
+  margin-left: 0.3rem;
+  cursor: pointer;
+}
+
+/* לוח תורנויות */
+#calendar {
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(130px,1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.day {
+  background: #eef4f7;
+  border-radius: 10px;
+  padding: 0.8rem;
+  box-shadow: 0 0 8px rgb(0 0 0 / 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 140px;
+}
+
+.day .date {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 0.4rem;
+  color: #34495e;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.4rem;
+}
+
+.day .worker {
+  color: #27ae60;
+  font-weight: 600;
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  min-height: 1.2em;
+}
+
+.note {
+  resize: vertical;
+  width: 100%;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+  padding: 0.5rem;
+  font-size: 0.95rem;
+  font-family: inherit;
+  font-weight: 400;
+  color: #444;
+  min-height: 50px;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+}
+
+.note:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 5px #3498dbaa;
+}
+
+/* כפתורי פעולות בלוח */
+.buttons {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  justify-content: center;
+}
+
+.buttons button,
+.buttons input[type='file'] {
+  font-size: 1rem;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.buttons button {
+  background-color: #2980b9;
+  color: #fff;
+}
+
+.buttons button:hover {
+  background-color: #1f5f85;
+}
+
+.buttons input[type='file'] {
+  border: 1.5px solid #ccc;
+  cursor: pointer;
+  background-color: #fff;
+  color: #444;
+  padding: 0.4rem 0.6rem;
+}
+
+/* רספונסיביות - להתאים למסכים קטנים */
+@media (max-width: 600px) {
+  .availability-form fieldset {
+    flex-basis: 100%;
+    max-height: 220px;
+  }
+  #calendar {
+    grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+  }
+}

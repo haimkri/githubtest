@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>לוח תורנויות חודשי</title>
+  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body>
+  <main>
+    <h1>לוח תורנויות חודשי</h1>
+    <section id="setup" class="card">
+      <label for="projectName">שם פרויקט / מחלקה:</label>
+      <input type="text" id="projectName" placeholder="לדוגמה: צוות לילה" />
+
+      <label for="workers">שמות העובדים (מופרדים בפסיק):</label>
+      <input type="text" id="workers" placeholder="יעקב, נועה, רן..." />
+
+      <label for="shiftCount">מספר משמרות ביום:</label>
+      <input type="number" id="shiftCount" min="1" value="1" />
+
+      <label for="monthPicker">בחר חודש:</label>
+      <input type="month" id="monthPicker" />
+
+      <button id="generateBtn" type="button">צור טופס זמינות</button>
+    </section>
+
+    <section id="availability-section" class="card hidden">
+      <h2>הגדר זמינות עובדים</h2>
+      <form id="availability-form" class="availability-form"></form>
+      <button id="buildCalendarBtn" type="button">צור לוח תורנויות</button>
+    </section>
+
+    <section id="calendar-section" class="card hidden">
+      <h2 id="month-title"></h2>
+      <div id="calendar"></div>
+
+      <div class="buttons">
+        <button id="saveLocalBtn" type="button">💾 שמור בדפדפן</button>
+        <button id="loadLocalBtn" type="button">📤 טען מהדפדפן</button>
+        <button id="exportExcelBtn" type="button">⬇️ ייצא ל־Excel</button>
+        <button id="exportJsonBtn" type="button">📥 שמור קובץ JSON</button>
+        <input type="file" id="jsonFileInput" accept="application/json" />
+      </div>
+    </section>
+
+    <template id="day-template">
+      <div class="day">
+        <div class="date"></div>
+        <div class="worker"></div>
+        <textarea class="note" placeholder="הערות למשימה..." rows="2"></textarea>
+      </div>
+    </template>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
